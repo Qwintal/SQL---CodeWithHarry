@@ -324,6 +324,7 @@ CREATE TABLE addresses (
 
 **01-views.sql**
 ```sql
+-- Act like a virutal table
 CREATE VIEW rich_boys AS
 SELECT * FROM users WHERE salary > 50000 AND gender = 'Male';
 
@@ -335,6 +336,7 @@ DROP VIEW rich_boys;
 
 **01-indexes.sql**
 ```sql
+-- Increase the speed of execution of selected INDEXES
 SHOW INDEXES FROM users;
 CREATE INDEX idx_gender ON users(gender);
 DROP INDEX idx_gender ON users;
@@ -344,6 +346,7 @@ DROP INDEX idx_gender ON users;
 
 **01-stored-procedures.sql**
 ```sql
+-- Acts like a function
 DELIMITER $$
 CREATE PROCEDURE select_users()
 BEGIN
@@ -359,6 +362,7 @@ DROP PROCEDURE IF EXISTS select_users;
 
 **01-triggers.sql**
 ```sql
+-- Automatic triggers the scrips inside it, after INSERT/DELETE/UPDATE
 CREATE TABLE user_log(
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
