@@ -1,6 +1,6 @@
 # SQL Learning Repository
 
-A comprehensive SQL learning repository following the Code with Harry SQL tutorial. This repo contains organized SQL scripts covering fundamental to advanced concepts.
+This Repository is another SQL course that I followed to cover topcis from basic to advance concepts.
 
 ## 📁 Repository Structure
 
@@ -54,10 +54,6 @@ sql-learning/
 │   └── 01-stored-procedures.sql
 ├── 12-triggers/
 │   └── 01-triggers.sql
-├── data/
-│   └── sample-data.sql
-└── docs/
-    └── concepts.md
 ```
 
 ## 📄 File Contents
@@ -66,6 +62,7 @@ sql-learning/
 
 **01-select.sql**
 ```sql
+-- Use of SELECT 
 USE startersql;
 
 SELECT * FROM users;
@@ -75,6 +72,7 @@ SELECT gender, name FROM users;
 
 **02-where-clause.sql**
 ```sql
+-- Using WHERE clause
 SELECT * FROM users WHERE gender = "female";
 SELECT * FROM users WHERE gender != "female";
 SELECT * FROM users WHERE date_of_birth > "2000-01-01";
@@ -90,6 +88,7 @@ SELECT * FROM users WHERE id > 12;
 
 **04-logical-operators.sql**
 ```sql
+-- Logical Operatros ( AND, OR, NOT )
 SELECT * FROM users WHERE gender = "male" AND salary < 50000;
 SELECT * FROM users WHERE gender = "male" OR salary > 70000;
 ```
@@ -98,17 +97,20 @@ SELECT * FROM users WHERE gender = "male" OR salary > 70000;
 
 **01-order-by.sql**
 ```sql
+-- Basic ODER BY 
 SELECT * FROM users WHERE gender = "female" ORDER BY salary DESC;
 SELECT * FROM users WHERE gender = "female" ORDER BY salary DESC LIMIT 3;
 ```
 
 **02-limit.sql**
 ```sql
+--Limit no:of outcomes, offset to jumo outcomes
 SELECT * FROM users ORDER BY id LIMIT 5 OFFSET 10;
 ```
 
 **03-update.sql**
 ```sql
+-- UPDATE data in exiisting table
 UPDATE users SET salary = 100000 WHERE name LIKE "Yash";
 UPDATE users SET salary = 700000 WHERE id = 5;
 UPDATE users SET name = "Aisha Khan" WHERE email = 'aisha@example.com';
@@ -117,12 +119,14 @@ UPDATE users SET salary = salary + 10000 WHERE salary < 60000;
 
 **04-delete.sql**
 ```sql
+-- Delete a value or truncate all values in a table
 DELETE FROM users;
 TRUNCATE TABLE addresses;
 ```
 
 **05-distinct.sql**
 ```sql
+-- Retruns only unique values
 SELECT DISTINCT gender FROM users;
 ```
 
@@ -240,6 +244,8 @@ INNER JOIN users b ON a.referred_by_id = b.id;
 
 **01-union.sql**
 ```sql
+-- Two join 2 tables
+-- Union returns no  duplicated values, Union all will return duplicated values 
 SELECT name FROM users
 UNION
 SELECT name FROM admin_users;
@@ -251,6 +257,7 @@ SELECT name FROM admin_users;
 
 **02-subqueries.sql**
 ```sql
+-- Subquereies act like listed querires
 SELECT id, name, salary
 FROM users
 WHERE salary > (SELECT AVG(salary) FROM users);
@@ -273,6 +280,7 @@ GROUP BY gender;
 
 **04-having-clause.sql**
 ```sql
+-- HAVING is used after GROUP BY
 SELECT gender, AVG(salary) AS avg_salary
 FROM users
 GROUP BY gender
@@ -281,6 +289,7 @@ HAVING AVG(salary) < 75000;
 
 **05-rollup.sql**
 ```sql
+-- Use for grand total
 SELECT gender, COUNT(*) AS total_users, AVG(salary) AS Avg_salary
 FROM users
 GROUP BY gender WITH ROLLUP;
@@ -368,76 +377,8 @@ END $$
 DELIMITER ;
 ```
 
-### data/
-
-**sample-data.sql**
-Contains all the INSERT statements for sample users and addresses data.
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/sql-learning.git
-   cd sql-learning
-   ```
-
-2. **Create the database**
-   ```sql
-   CREATE DATABASE startersql;
-   USE startersql;
-   ```
-
-3. **Run the setup in order**
-   ```bash
-   mysql -u root -p startersql < 04-database-management/01-create-table.sql
-   mysql -u root -p startersql < data/sample-data.sql
-   ```
-
-4. **Start learning**
-   - Begin with `01-basics/` folder
-   - Progress through numbered folders
-   - Each file is self-contained and follows a logical progression
-
-## 📚 Learning Path
-
-1. **Basics** - SELECT, WHERE, operators
-2. **Intermediate** - ORDER BY, LIMIT, UPDATE, DELETE
-3. **Advanced** - Functions and aggregations
-4. **Database Management** - CREATE, ALTER, DROP tables
-5. **Joins** - INNER, LEFT, RIGHT, SELF joins
-6. **Advanced Queries** - UNION, Subqueries, GROUP BY
-7. **Transactions** - COMMIT, ROLLBACK
-8. **Relationships** - Foreign keys
-9. **Views** - Creating and using views
-10. **Indexes** - Optimization
-11. **Stored Procedures** - Reusable SQL blocks
-12. **Triggers** - Automated actions
-
-## 📝 Notes
-
-- Each file has descriptive comments
-- File names follow sequential numbering for easy ordering
-- All queries are tested and working
-- Follow the suggested learning path for best results
 
 ## 🔗 References
 
-- Tutorial: [Code with Harry SQL](https://youtu.be/videoid)
-- MySQL Documentation: https://dev.mysql.com/doc/
-
-## .gitignore
-
-```
-*.log
-*.env
-.DS_Store
-node_modules/
-```
-
-## 📄 License
-
-Educational - Free to use and modify for learning purposes.
-
----
-
-**Happy Learning! 🎓**
+- Tutorial: [Code with Harry SQL](https://youtu.be/yE6tIle64tU?si=WiXni3O1V--Uuw5v)
+- MySQL Documentation: [HandBook_PDF](https://github.com/Qwintal/SQL---CodeWithHarry/blob/main/MySQL%20Handbook.pdf)
